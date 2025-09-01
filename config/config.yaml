@@ -1,0 +1,49 @@
+data:
+  data_dir: "./data/raw"
+  reference_file: "./data/REFERENCE-v3.csv"
+  processed_dir: "./data/processed"
+  max_records: 1000
+  test_size: 0.2
+  random_state: 42
+  min_samples_per_class: 50
+
+training:
+  save_models: true
+  use_rf: true
+  use_cnn: false
+  use_oversampling: true
+  sampling_strategy: "smote_tomek"
+  use_hyperparameter_tuning: false
+
+features:
+  fs: 300
+  seq_length: 3000
+  use_advanced_features: true
+  use_feature_engineering: true
+
+models:
+  rf:
+    n_estimators: 200
+    random_state: 42
+    class_weight: "balanced_subsample"
+    max_depth: 20
+    min_samples_split: 5
+    min_samples_leaf: 2
+  
+  xgb:
+    n_estimators: 200
+    random_state: 42
+    max_depth: 6
+    learning_rate: 0.1
+    scale_pos_weight: "balanced"
+  
+  lgbm:
+    n_estimators: 200
+    random_state: 42
+    max_depth: 6
+    learning_rate: 0.05
+    class_weight: "balanced"
+
+evaluation:
+  metrics: ["precision", "recall", "f1", "balanced_accuracy", "mcc"]
+  focus_class: "A"
