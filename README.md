@@ -79,9 +79,3 @@ Use `live_ecg_receiver.py` to receive and process live ECG data for real-time AF
 
 ## Models & Outputs
 - Trained models, scalers, feature selectors, and results are saved in the `models/` directory.
-
-## Contributing
-Feel free to open issues or pull requests for improvements.
-
-## License
-MIT License (or specify your license here)
